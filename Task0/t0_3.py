@@ -16,6 +16,7 @@ class Hours:
     def __str__(self):
         return f'Количество часов: {self.hours}'
 
+
 @total_ordering
 class Minutes:
     """ Значиние Минут для текущего времени. """
@@ -29,6 +30,7 @@ class Minutes:
 
     def __str__(self):
         return f'Количество минут: {self.minutes}'
+
 
 @total_ordering
 class Day(Hours, Minutes):
@@ -53,11 +55,17 @@ class Day(Hours, Minutes):
             else:
                 return 'Ночь'
 
+    def __eq__(self, other):
+        return (self.hours, self.minutes) == (other.hours, other.minutes)
+
+    def __lt__(self, other):
+        return (self.hours, self.minutes) < (other.hours, other.minutes)
+
     def __str__(self):
         return f'Точное время: \n{self.hours}:{self.minutes}'
+
 
 if __name__ == '__main__':
     day_of_time = Day()
     day_of_time.show_current_time()
     print(day_of_time.get_day_time())
-
