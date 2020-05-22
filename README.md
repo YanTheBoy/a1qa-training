@@ -1,1 +1,0 @@
-# a1qa-training
