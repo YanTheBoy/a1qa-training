@@ -7,7 +7,7 @@ Python3 should be already installed. Then use pip (or pip3, if there is a confli
 $ pip install -r requirements.txt
 ```
 
-Run insta-contest.py for testing modules:
+Run test_file_module.py for testing module:
 ```bash
 $ pytest test_file_module.py
 ============================= test session starts ==============================
