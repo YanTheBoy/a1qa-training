@@ -35,7 +35,7 @@ def test_market_page_open(browser):
     market_page.go_to_main_page()
     market_page.open_categories_tray()
     all_categories = [category.text for category in market_page.get_all_categories()]
-    with open(path, 'w', newline='') as csvfile:
+    with open(path, 'w', newline='', encoding='utf-8-sig') as csvfile:
         textwriter = csv.writer(csvfile)
         for category in all_categories:
             textwriter.writerow([category])
