@@ -2,7 +2,7 @@ import sys
 sys.path.append('../')
 from browser.browser_engine import BrowserEngine
 from BaseElement.steam_store import HomePage
-from BaseElement.steam_store_tests import SteamStoreTests
+from BaseElement.steam_store_asserts import SteamStoreTests
 import unittest
 import time
 

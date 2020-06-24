@@ -2,7 +2,8 @@ import sys
 sys.path.append('../')
 from browser.browser_engine import BrowserEngine
 from BaseElement.steam_store import HomePage
-from BaseElement.steam_store_tests import SteamStoreTests
+from BaseElement.steam_store_asserts import SteamStoreAsserts
+from CommonFunctions.json_data_getter import TestingData
 import unittest
 
 
@@ -18,10 +19,10 @@ class TestActionGameDiscount(unittest.TestCase):
 
     def test_steam_games_with_highest_sale(self):
         homepage = HomePage(self.driver)
-        test = SteamStoreTests(self.driver)
+        test = SteamStoreAsserts(self.driver)
         test.assert_current_url()
 
-        homepage.click_menu_actions()
+        homepage.click_menu_genre(TestingData.action_en)
         test.assert_game_genre()
 
         homepage.click_top_sellers()
@@ -31,7 +32,7 @@ class TestActionGameDiscount(unittest.TestCase):
         homepage.get_discount_game('max')
 
         if homepage.check_age_restriction():
-            homepage.enter_correct_age('2000')
+            homepage.enter_correct_age()
             homepage.view_game_page()
         test.assert_gamepage_opened()
 
@@ -51,10 +52,10 @@ class TestIndieGameDiscount(unittest.TestCase):
 
     def test_steam_games_with_lowest_sale(self):
         homepage = HomePage(self.driver)
-        test = SteamStoreTests(self.driver)
+        test = SteamStoreAsserts(self.driver)
         test.assert_current_url()
 
-        homepage.click_menu_indie()
+        homepage.click_menu_genre(TestingData.indie_en)
         test.assert_game_genre()
 
         homepage.click_top_sellers()
@@ -64,7 +65,7 @@ class TestIndieGameDiscount(unittest.TestCase):
         homepage.get_discount_game('min')
 
         if homepage.check_age_restriction():
-            homepage.enter_correct_age('2000')
+            homepage.enter_correct_age()
             homepage.view_game_page()
         test.assert_gamepage_opened()
 

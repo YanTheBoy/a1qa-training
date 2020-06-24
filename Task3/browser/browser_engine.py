@@ -36,8 +36,6 @@ class BrowserEngine(object):
         logger.info("Open url: %s" % url)
         driver.maximize_window()
         logger.info("Maximize the current window.")
-        driver.implicitly_wait(5)
-        logger.info("Set implicitly wait 5 seconds.")
         return driver
 
     def quit_browser(self):
