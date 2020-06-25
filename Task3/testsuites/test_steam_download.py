@@ -1,10 +1,11 @@
 import sys
 sys.path.append('../')
 from browser.browser_engine import BrowserEngine
-from BaseElement.steam_store import HomePage
-from BaseElement.steam_store_asserts import SteamStoreTests
+from BaseElement.steam_store import SteamStorePage, SteamClientPage
+from BaseElement.steam_store_asserts import SteamStoreAsserts
 import unittest
 import time
+
 
 class TestSteamStore(unittest.TestCase):
     @classmethod
@@ -17,9 +18,12 @@ class TestSteamStore(unittest.TestCase):
         cls.driver.quit()
 
     def test_steam_download(self):
-        homepage = HomePage(self.driver)
-        test = SteamStoreTests(self.driver)
+        homepage = SteamStorePage(self.driver)
+        test = SteamStoreAsserts(self.driver)
         test.assert_current_url()
         homepage.click_install()
-        homepage.download()
+
+        client_page = SteamClientPage(self.driver)
+        client_page.download()
+        time.sleep(5)
         test.assert_steamclient_downloading()

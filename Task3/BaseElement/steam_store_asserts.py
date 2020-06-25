@@ -1,7 +1,7 @@
 from logger.logger import Logger
 from BaseTest.Base_tests import Asserts
 from CommonFunctions.json_data_getter import JsonDataGetter, TestingData
-from BaseElement.steam_store import HomePage
+from BaseElement.steam_store import GameGenrePageLocators
 
 
 logger = Logger(logger="BaseTest").getlog()
@@ -14,7 +14,7 @@ class SteamStoreAsserts(Asserts):
 
     def assert_game_genre(self):
         genres = TestingData.indie_heading + TestingData.action_heading
-        header = HomePage.header_name
+        header = GameGenrePageLocators.header_name
         self.assert_equal_game_genre(header, genres)
 
     def assert_top_sellers_opened(self):
