@@ -2,7 +2,7 @@ import json
 
 
 class JsonDataGetter:
-    with open('../CommonFunctions/config.json') as config_data:
+    with open('../CommonFunctions/config.json', encoding='utf-8') as config_data:
         data = json.load(config_data)
     browser = data['browser']
     url = data['url']
@@ -10,7 +10,7 @@ class JsonDataGetter:
 
 
 class TestingData:
-    with open('../testsuites/asserts_data.json') as a_data:
+    with open('../testsuites/asserts_data.json', encoding='utf-8') as a_data:
         asserts_data = json.load(a_data)
     year = asserts_data['age_year']
     client = asserts_data['steam_client_name']
