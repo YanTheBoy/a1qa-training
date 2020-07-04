@@ -1,0 +1,13 @@
+{
+    "gamepage_url": "https://store.steampowered.com/app/",
+    "action_game_ru": "Экшен",
+    "action_game_en": "Action",
+    "action_heading_ru": "Просмотр по метке «Экшен»",
+    "action_heading_en": "Browsing Action",
+    "indie_game_en": "Indie",
+    "indie_game_ru": "Инди",
+    "indie_heading_ru": "Просмотр по метке «Инди»",
+    "indie_heading_en": "Browsing Indie",
+    "age_year": "1990",
+    "steam_client_name" : "SteamSetup.exe"
+}
